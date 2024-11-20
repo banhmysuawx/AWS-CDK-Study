@@ -19,3 +19,8 @@ __pycache__
 cdk.out
 
 /evidence
+
+.venv
+
+faiss_index
+.env
