@@ -67,3 +67,14 @@ class SampleAppStack(Stack):
                     destination_cidr_block="0.0.0.0/0",
                     gateway_id=my_internet_gateway.attr_internet_gateway_id,
                 )
+
+
+class L2ConstructsStack(Stack):
+
+    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+        super().__init__(scope, construct_id, **kwargs)
+
+        # Tạo VPC với L2 construct
+        my_vpc = ec2.Vpc(
+            self, "MyVpc", nat_gateways=0  # Tạo isolated subnets thay vì NAT gateways
+        )
