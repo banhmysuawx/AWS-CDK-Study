@@ -72,10 +72,10 @@ def handler(event: Dict[str, Any], context: Any) -> None:
     """
     # Get configuration from environment variables
     today = datetime.now().strftime("%Y%m%d")
-    bucket = os.environ.get("SOURCE_BUCKET", "rag-demo-manual")
+    bucket = os.environ.get("SOURCE_BUCKET", "")
     prefix = today + "/"
     queue_url = os.environ.get(
-        "QUEUE_URL", "https://sqs.ap-southeast-1.amazonaws.com/905418045741/demo-sqs"
+        "QUEUE_URL", ""
     )
 
     if not queue_url:
